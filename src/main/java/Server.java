@@ -47,6 +47,7 @@ public class Server implements Hello {
             Server obj = new Server(registry);
             Hello stub = (Hello)  UnicastRemoteObject.exportObject(obj, 0);
 
+            //Bind the remote object's stub in the registry
             registry.bind("Hello", stub);
         } catch (Exception e) {
             System.err.println("Server exception: " + e.toString());
